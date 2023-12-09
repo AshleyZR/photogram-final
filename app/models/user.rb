@@ -13,6 +13,7 @@
 #  remember_created_at            :datetime
 #  reset_password_sent_at         :datetime
 #  reset_password_token           :string
+#  sent_follow_requests_count     :integer
 #  username                       :string
 #  created_at                     :datetime         not null
 #  updated_at                     :datetime         not null
