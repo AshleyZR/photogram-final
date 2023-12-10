@@ -36,6 +36,15 @@ class User < ApplicationRecord
   has_many :liked_photos, through: :likes, source: :photo
   has_many :feed, through: :following, source: :own_photos
   has_many :activity, through: :following, source: :liked_photos
+  def pending_follow_request_to?(other_user_id)
+    sent_follow_requests.where(recipient_id: other_user_id, status: 'pending').exists?
+  end
+  def accepted_follow_request_to?(other_user_id)
+    sent_follow_requests.where(recipient_id: other_user_id, status: 'accepted').exists?
+  end
+  def following?(other_user_id)
+    following.include?(other_user_id)
+  end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

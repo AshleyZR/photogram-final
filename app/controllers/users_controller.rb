@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_id = params.fetch("user_id")
-    @user = User.where({ :id => user_id }).first
+    username = params.fetch("username")
+    @the_user = User.where({ :username => username }).first
     render({ :template => "users/show" })
   end
 
