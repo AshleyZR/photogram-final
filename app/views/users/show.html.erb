@@ -10,7 +10,7 @@
 
 
       <div>
-          <% if current_user.following?(@the_user.id) %>
+          <% if current_user.accepted_follow_request_to?(@the_user.id) %>
             <a href="/delete_follow_request/<%= @the_user.id%>">
               Unfollow
             </a>
@@ -77,7 +77,7 @@
   <% @the_user.own_photos.each do |a_photo|%>
   <tr>
     <td>
-      <img src="<%= a_photo.image%>" class="img-responsive">
+      <img src="<%= a_photo.image%>">
     </td>
 
     <td>
